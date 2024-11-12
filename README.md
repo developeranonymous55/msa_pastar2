@@ -2,73 +2,17 @@
 
 This repository has been made publicly accessible for the purpose of a blind review of PA-Star, with its historical commit data removed to ensure anonymity in the evaluation process.
 
-## PA-Star README
+## Original PA-Star
 
-PA-Star is a software that performs a parallel A-Star search to solve the Multiple Sequence Alignment (MSA) problem. For comparison we also developed a serial version (msa\_astar).
+https://github.com/danielsundfeld/astar\_msa
 
-Note: the parallel version can also run with 1 thread. Serial/Single-threaded are different programs and solutions.
+## Asymmetric Multiprocessor Experiments
 
-## Getting Started
-
-The PA-Star have been developed for Linux. The software is stable and have been stress tested using machines with 1TB of memory. The memory requirement usually is the main issue for the MSA problem.
-
-### Prerequisites
-
-You need a modern C++ compiler and the libboost devel package. On Ubuntu, you can install it by:
+All experiments are available as scripts. The AMP:
 
 ```
-sudo apt-get install build-essential libboost-dev
+./test/RUN_hybrid/performance_hybrid_all.sh
 ```
-
-### Compiling
-
-To compile, you enter the "astar\_msa" folder and type:
-
-```
-'make'
-```
-
-This command works on all major Linux distributions and the 'msa\_astar' and 'msa\_pastar' binaries will be available in the 'astar\_msa/bin' folder.
-
-## How to execute
-
-In the project we included many examples. By default, you can run msa\_astar for serial executions and msa\_pastar for parallel executions using as many cores as possible in the machine.
-
-Few examples:
-```
-#Easy test:
-./bin/msa_astar seqs/3/synthetic_easy.fasta
-
-#Medium test:
-./bin/msa_astar seqs/4/3pmg_ref1.fasta
-
-#Harder test:
-./bin/msa_pastar ./seqs/5/EASY_instances/synthetic_easy.fasta
-
-#Running the parallel version with 2 processors:
-./bin/msa_pastar -t 2 ./seqs/4/3pmg_ref1.fasta
-```
-
-### More options
-
-Usually the default options are the best to run. You can change and check more at:
-
-```
-./bin/msa_astar -h or ./bin/msa_pastar -h
-```
-
-### Does it works with other problems or just the multiple sequence alignment?
-
-Yes, the A\* algorithm is usefull for any pathfinding problem! But this project only implements MSA. If you need to use it on other problem, the function 'msa\_astar' is specific for the MSA problem, but the PriorityList class can be reused for any kind of graph.
-You can also implement any 'best-first search' algorithm using the PriorityList class, by changing the rules on how you insert the nodes in the list.
-
-## Cite us
-
-## Documentation
-This is a small scientific project, but we have professional
-standards on our code and documentation. You can generate
-the Doxygen documentation by running 'make' command in the
-'astar\_msa/doc' folder.
 
 ## License
 
